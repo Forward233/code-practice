@@ -1,0 +1,8 @@
+{
+  "properties": [
+    {
+      "name": "distributelock.type",
+      "type": "java.lang.String",
+      "description": "Description for distributelock.type."
+  }
+] }
