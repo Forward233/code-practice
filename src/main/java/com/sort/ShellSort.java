@@ -12,17 +12,8 @@ public class ShellSort {
         System.out.println();
         ShellSort shellSort = new ShellSort();
 
-        for (int i = 0; i < 50_000; i++) {
-            shellSort.test();
-        }
     }
-
     private static void shellSort(int[] arr, int length) {
 
-    }
-    private void test() {
-        int i = 8;
-        while ((i -= 3) > 0);
-        System.out.println("i = " + i);
     }
 }
