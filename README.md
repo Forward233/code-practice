@@ -1,2 +1,2 @@
-# leetcode-practice
- leetcode-practice
+# code-practice
+ code-practice
