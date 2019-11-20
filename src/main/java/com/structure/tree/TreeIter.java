@@ -1,5 +1,7 @@
 package com.structure.tree;
 
+import com.sun.org.apache.xpath.internal.WhitespaceStrippingElementMatcher;
+
 import java.util.Stack;
 
 /**
@@ -96,11 +98,12 @@ public class TreeIter {
      *         4            5     6
      *             7           8
      */
+    // 中左右
     void preorderTraversal(TreeNode root) {
         Stack<TreeNode> stack = new Stack<>();
         while (root != null || !stack.isEmpty()) {
             while (root != null) {
-                System.out.println(root.val);
+                System.out.print(root.val + " ");
                 stack.push(root);
                 root = root.leftNode;
             }
@@ -110,26 +113,57 @@ public class TreeIter {
             }
         }
     }
-    void middleorderTraversaln(TreeNode root) {
-        if (root != null) {
-            System.out.print(root.val+" ");
-            if(root.leftNode != null){
-                preorderTraversalByRecursion(root.leftNode);
+
+    /*                  1
+     *             2           3
+     *         4            5     6
+     *             7           8
+     */
+    // 左中右
+    void middleorderTraversal(TreeNode root) {
+        Stack<TreeNode> stack = new Stack<>();
+        while (root != null || !stack.isEmpty()) {
+            while (root != null) {
+                stack.push(root);
+                root = root.leftNode;
             }
-            if(root.rightNode != null){
-                preorderTraversalByRecursion(root.rightNode);
+            if (!stack.isEmpty()) {
+                root = stack.pop();
+                System.out.print(root.val + " ");
+                root = root.rightNode;
             }
         }
     }
 
-    void postorderTraversal(TreeNode root) {
-        if (root != null) {
-            System.out.print(root.val+" ");
-            if(root.leftNode != null){
-                preorderTraversalByRecursion(root.leftNode);
+    /*                  1
+     *             2           3
+     *         4            5     6
+     *             7           8
+     */
+    // 左右中
+    void postorderTraversal(TreeNode treeNode) {
+        Stack<TreeNode> stack = new Stack<>();
+        while (treeNode != null || !stack.isEmpty()) {
+            while (treeNode != null) {
+                stack.push(treeNode);
+                treeNode = treeNode.leftNode;
             }
-            if(root.rightNode != null){
-                preorderTraversalByRecursion(root.rightNode);
+            boolean tag = true;
+            TreeNode preNode = null;  // 前驱节点
+            while (!stack.isEmpty() && tag) {
+                treeNode = stack.peek();
+                if (treeNode.rightNode == preNode) { // 之前访问的为空节点或是栈顶节点的右子节点
+                    treeNode = stack.pop();
+                    System.out.print(treeNode.val + " ");
+                    if (stack.isEmpty()) {
+                        return;
+                    } else {
+                        preNode = treeNode;
+                    }
+                } else {
+                    treeNode = treeNode.rightNode;
+                    tag = false;
+                }
             }
         }
     }
@@ -156,8 +190,14 @@ public class TreeIter {
         TreeIter treeIter = new TreeIter();
         treeIter.preorderTraversalByRecursion(root);
         System.out.println();
+        treeIter.preorderTraversal(root);
+        System.out.println();
         treeIter.middleorderTraversalByRecursion(root);
         System.out.println();
+        treeIter.middleorderTraversal(root);
+        System.out.println();
         treeIter.postorderTraversalByRecursion(root);
+        System.out.println();
+        treeIter.postorderTraversal(root);
     }
 }
