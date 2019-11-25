@@ -4,13 +4,16 @@ package com.algorithm.recursion;
  * @author: yhl
  * @DateTime: 2019/11/20 10:46
  * @Description: 汉诺塔
+ *
+ * reference ：[java基础实现经典汉诺塔，超级简单 - renlianggee - CSDN博客](https://blog.csdn.net/renlianggee/article/details/89945824)
  */
+
 public class Hanoi {
 
     /**
      * 一共走了多少步
      */
-    static int times;
+    private static int times;
 
     public static void main(String[] args) {
         Hanoi hanoi = new Hanoi();
@@ -26,7 +29,7 @@ public class Hanoi {
     　　第5次 1号盘 B—->A
     　　第6次 2号盘 B—->C
     　　第7次 1号盘 A—->C
-    sum = 7 次
+        sum = 7 次
      */
 
     void hanoi(int n, char a, char b, char c) {
