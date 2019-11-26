@@ -10,14 +10,9 @@ import java.util.*;
 public class SingleNumber3 {
 
     public static void main(String[] args) {
-        int[] arr = {0,1,0,1,0,1,99};
+        int[] arr = {1,2,1,3,2,5};
         SingleNumber3 singleNumber = new SingleNumber3();
         System.out.println(Arrays.toString(singleNumber.singleNumber(arr)));
-
-        Set<Integer> set = new HashSet<>();
-        //Set-->数组
-        Integer[] array=set.toArray(new Integer[0]);
-        System.out.println(Arrays.toString(array));
     }
 
     public int[] singleNumber(int[] nums) {
@@ -29,8 +24,7 @@ public class SingleNumber3 {
                 map.remove(num);
             }
         }
-        final Set<Integer> set = map.keySet();
-        new ArrayList<>(set).toArray();
+        return map.keySet().stream().mapToInt(Integer::intValue).toArray();
     }
 
     public int singleNumber2(int[] nums) {

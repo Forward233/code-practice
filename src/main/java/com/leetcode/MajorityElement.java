@@ -23,8 +23,8 @@ public class MajorityElement {
     public int majorityElement2(int[] nums) {
         for (int num : nums) {
             int count = 0;
-            for (int i : nums) {
-                if (num == i) {
+            for (int nu : nums) {
+                if (num == nu) {
                     count++;
                 }
             }
@@ -36,6 +36,7 @@ public class MajorityElement {
     }
 
     /**
+     * O(n) runtime complexity
      *  int[] arr = {2, 2, 1, 1, 1, 2, 2};
      * @param nums
      * @return
