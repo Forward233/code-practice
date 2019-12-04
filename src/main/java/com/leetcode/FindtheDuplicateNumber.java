@@ -1,8 +1,6 @@
 package com.leetcode;
 
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Set;
+import java.util.*;
 
 /**
  * @author: yhl
@@ -11,11 +9,9 @@ import java.util.Set;
  */
 public class FindtheDuplicateNumber {
     public static void main(String[] args) {
-        int[] arr = {3, 1, 3, 4, 2};
+        int[] arr = {3, 1, 3, 5, 4, 2};
         FindtheDuplicateNumber number = new FindtheDuplicateNumber();
-        System.out.println(number.findDuplicate4(arr));
-        String s = "1.txt";
-        System.out.println(s.lastIndexOf("."));
+        System.out.println(number.findDuplicate3(arr));
     }
 
     public int findDuplicate(int[] nums) {
@@ -41,7 +37,6 @@ public class FindtheDuplicateNumber {
 
     /**
      * 3, 1, 3, 4, 2
-     * round 1: slow = 3,
      * @param nums
      * @return
      */
@@ -55,28 +50,9 @@ public class FindtheDuplicateNumber {
 
         fast = 0;
         while (fast != slow) {
-            slow = nums[slow];
             fast = nums[fast];
+            slow = nums[slow];
         }
         return slow;
-    }
-
-
-    /**
-     * 用当前数字做索引，定位到元素位置，将数字置为负数(做别的标记也可以)，
-     * 继续循环，如果此元素再次被定位到且为负数，说明此元素索引对应的元素出现过
-     *
-     * @param nums
-     * @return
-     */
-    public int findDuplicate4(int[] nums) {
-        for (int i = 0; i < nums.length; i++) {
-            if (nums[Math.abs(nums[i])] < 0) {
-                return Math.abs(nums[i]);
-            } else {
-                nums[Math.abs(nums[i])] = -nums[Math.abs(nums[i])];
-            }
-        }
-        return -1;
     }
 }
