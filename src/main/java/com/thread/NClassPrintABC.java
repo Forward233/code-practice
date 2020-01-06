@@ -1,6 +1,7 @@
 package com.thread;
 
 import java.util.concurrent.Semaphore;
+import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.locks.Condition;
 import java.util.concurrent.locks.ReentrantLock;
 
@@ -73,8 +74,9 @@ public class NClassPrintABC {
 
     private static ReentrantLock lock = new ReentrantLock();
     private static int states = 0;
-    // 循环十次，也可用AutomicInteger来代替，可不用加锁，效率更高
+    // 循环十次，也可用AtomicInteger来代替，可不用加锁，效率更高
     private static int runTimes = 10;
+    private static AtomicInteger states1 = new AtomicInteger(0);
 
     static class A extends Thread {
 
