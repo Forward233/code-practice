@@ -1,19 +1,32 @@
 package com.sort;
 
 import java.util.Arrays;
+import java.util.Calendar;
+import java.util.Date;
 
 /**
  * @author: yhl
  * @DateTime: 2020/1/15 16:00
- * @Description:
+ * @Description: [归并排序详解（merge sort） - 简书](https://www.jianshu.com/p/b50a6034eb90)
  */
 public class MergeSort {
 
     public static void main(String[] args) {
 //        int[] arrays = {9, 2, 5, 1, 3, 2, 9, 5, 2, 1, 8};
-        int[] arrays = {4, 3, 2, 7, 6};
+        int[] arrays = {4, 7, 2, 3, 6};
         mergeSort(arrays, 0, arrays.length - 1);
         System.out.println(Arrays.toString(arrays));
+        Calendar c = Calendar.getInstance();
+        c.setTime(new Date());
+        Calendar c2 = Calendar.getInstance();
+        c2.set(1, c.get(1));
+        c2.set(2, c.get(2));
+        c2.set(5, c.get(5) + 0);
+        c2.set(11, 23);
+        c2.set(12, 59);
+        c2.set(13, 59);
+        c2.set(14, 0);
+        System.out.println(c2.getTime());
     }
 
     public static void mergeSort(int[] arr, int L, int R) {
@@ -35,7 +48,7 @@ public class MergeSort {
     }
 
     public static void merge(int[] arr, int L, int M, int R) {
-         int[] leftArray = new int[M - L];
+        int[] leftArray = new int[M - L];
         int[] rightArray = new int[R - M + 1];
         //往这两个数组填充数据
         if (M - L >= 0) System.arraycopy(arr, L, leftArray, 0, M - L);
@@ -43,7 +56,7 @@ public class MergeSort {
 
         int i = 0, j = 0;
         // arrays数组的第一个元素
-        int  k = L;
+        int k = L;
 
         //比较这两个数组的值，哪个小，就往数组上放
         while (i < leftArray.length && j < rightArray.length) {
