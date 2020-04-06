@@ -1,7 +1,5 @@
 package com.structure.tree;
 
-import com.sun.org.apache.xpath.internal.WhitespaceStrippingElementMatcher;
-
 import java.util.Stack;
 
 /**
