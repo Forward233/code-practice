@@ -14,7 +14,7 @@ import java.util.Arrays;
 public class InsertSort {
     public static void main(String[] args) {
         int[] arr = {6, 1, 5, 7, 8, 4, 3, 0, 2, 9};
-        insertionSort(arr);
+        insert4(arr);
         System.out.println(Arrays.toString(arr));
     }
 
@@ -48,8 +48,8 @@ public class InsertSort {
     }
 
     private static void insertSort1(int[] a) {
-        int i, j;
-        for (i = 1; i < a.length; i++) {
+        int j;
+        for (int i = 1; i < a.length; i++) {
             int temp = a[i];
             // for循环可以写成while
             for (j = i - 1; j >= 0 && a[j] > temp; j--) {
@@ -59,21 +59,49 @@ public class InsertSort {
         }
     }
 
-
     /**
-     * 插入排序:
-     * 原理：每次将数组最后一个元素作为插入元素，与它前面有序（已排好序）的数组元素进行比较后，插入正确的位置，排序完成。
-     * 此方式较前两种效率略低
+     * 每天一练
+     * 取第一个元素做为一个有序数组，从后面的数组中找出比此元素小的
      */
-    private static void insertionSort(int[] arr) {
+    private static void insert2(int[] arr) {
         for (int i = 1; i < arr.length; i++) {
-            for (int j = i; j > 0; j--) {
-                if (arr[j] < arr[j - 1]) {
-                    int temp = arr[j];
-                    arr[j] = arr[j - 1];
-                    arr[j - 1] = temp;
-                }
+            int temp = arr[i];
+            int j = i - 1;
+            while (j >= 0 && arr[j] > temp) {
+                arr[j + 1] = arr[j];
+                j--;
             }
+            // 因为循环中的j--，所以这块要+1
+            arr[j + 1] = temp;
         }
     }
+
+    public static void insert3(int[] arr) {
+        int j;
+        for (int i = 1; i < arr.length; i ++) {
+            // 记录要插入的元素
+            int temp = arr[i];
+            // 记录排好序的数组最后一个元素索引\
+            for (j = i - 1; j >= 0 && arr[j] > temp; j--) {
+                arr[j + 1] = arr[j];
+            }
+            arr[j + 1] = temp;
+        }
+    }
+
+    public static void insert4(int[] arr) {
+        for (int i = 1; i < arr.length; i++) {
+            int temp = arr[i];
+            int j = i - 1;
+            while (j >= 0 && arr[j] > temp) {
+                arr[j + 1] = arr[j];
+                j--;
+            }
+            arr[j + 1] = temp;
+        }
+    }
+
+
+
+
 }
