@@ -11,8 +11,8 @@ public class TestScanner {
 
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        while (sc.hasNextLine()) {
-            System.out.println(sc.nextLine());
+        while (sc.hasNext()) {
+            System.out.println(sc.next());
         }
     }
 }

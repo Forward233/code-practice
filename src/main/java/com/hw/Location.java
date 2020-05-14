@@ -32,8 +32,7 @@ public class Location {
                     if (l.charAt(0) == 'S') {
                         b -= num;
                     }
-                } catch (Exception e) {
-                    continue;
+                } catch (Exception ignored) {
                 }
             }
             System.out.println(a + "," + b);
