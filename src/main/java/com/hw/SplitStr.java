@@ -1,7 +1,5 @@
 package com.hw;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Scanner;
 
 /**
@@ -15,8 +13,9 @@ public class SplitStr {
         Scanner sc = new Scanner(System.in);
         while(sc.hasNext()){
             String s = sc.nextLine();
-            if(s.length()%8 !=0 )
+            if(s.length()%8 !=0 ) {
                 s = s + "00000000";
+            }
 
             while(s.length()>=8){
                 System.out.println(s.substring(0, 8));
