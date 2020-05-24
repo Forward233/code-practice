@@ -1,4 +1,7 @@
-package com.hash;
+package com.structure.hash;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * @author: yhl
@@ -15,6 +18,7 @@ public class HashUtils {
      * @return
      */
     public static int getHash(String str) {
+        List<Integer> result = new ArrayList<>();
         final int p = 16777619;
         int hash = (int) 2166136261L;
         for (int i = 0; i < str.length(); i++)
@@ -28,5 +32,7 @@ public class HashUtils {
         if (hash < 0)
             hash = Math.abs(hash);
         return hash;
+
+
     }
 }

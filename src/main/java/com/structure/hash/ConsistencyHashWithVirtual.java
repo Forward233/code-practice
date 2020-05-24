@@ -1,4 +1,4 @@
-package com.hash;
+package com.structure.hash;
 
 import com.google.common.collect.Lists;
 import com.google.common.collect.Maps;

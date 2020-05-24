@@ -1,6 +1,8 @@
-package com.algorithm.recursion;
+package com.structure.list;
 
 import lombok.Data;
+
+import java.util.Stack;
 
 /**
  * @author: yhl
@@ -21,13 +23,17 @@ public class LinkReverse {
         linkNode2.next = linkNode3;
         linkNode3.next = linkNode4;
         linkNode4.next = linkNode5;
-        reverse(linkNode1);
+//        LinkNode linkNode = recursiveReverse(linkNode1);
+//        System.out.println(linkNode);
+        stackReverse(linkNode1);
     }
 
-    static void reverse(LinkNode node) {
+    // 遍历
+    static void iterReverse(LinkNode node) {
         if (node == null || node.next == null) {
             return;
         }
+
         LinkNode pre = null;
         LinkNode next;
         while (node != null) {
@@ -36,12 +42,39 @@ public class LinkReverse {
             pre = node;
             node = next;
         }
-        while (pre.next != null) {
+        while (pre!= null) {
             System.out.println(pre.value);
             pre = pre.next;
         }
-        System.out.println(pre.value);
+    }
 
+    // 递归
+
+    static LinkNode recursiveReverse(LinkNode node) {
+        if (node == null || node.next == null) {
+            return node;
+        }
+        LinkNode temp = node.next;
+        LinkNode newHead = recursiveReverse(node.next);
+        temp.next = node;
+        node.next = null;
+        return newHead;
+    }
+
+    static void stackReverse(LinkNode node) {
+        if (node == null || node.next == null) {
+            return;
+        }
+        Stack<LinkNode> stack = new Stack<>();
+        while (node != null) {
+            stack.push(node);
+            node = node.next;
+        }
+        LinkNode newNode = new LinkNode(stack.pop().value);
+        while (!stack.isEmpty()) {
+            newNode.next = stack.pop();
+        }
+        System.out.println(newNode);
     }
 
 

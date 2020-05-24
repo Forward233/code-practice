@@ -1,4 +1,4 @@
-package com.hash;
+package com.structure.hash;
 
 import java.util.SortedMap;
 import java.util.TreeMap;
