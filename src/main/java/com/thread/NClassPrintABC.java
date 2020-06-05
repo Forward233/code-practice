@@ -14,8 +14,8 @@ public class NClassPrintABC {
 
 
     public static void main(String[] args) {
-//        nThreadPrint1();
-        nThreadPrintNTimes2();
+        nThreadPrint1();
+//        nThreadPrintNTimes2();
 //        nThreadPrintNTimes3();
 //        nThreadPrintNTimes4();
     }
@@ -27,16 +27,19 @@ public class NClassPrintABC {
      */
     public static void nThreadPrint1() {
         Thread a = new Thread(() -> {
-            System.out.println("A");
+            System.out.print("A");
         });
 
         Thread b = new Thread(() -> {
-            try {
-                a.join();
-            } catch (InterruptedException e) {
-                e.printStackTrace();
+            for (int i = 0; i < 10; i++) {
+                try {
+                    a.join();
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+                System.out.print("B");
             }
-            System.out.println("B");
+
         });
         Thread c = new Thread(() -> {
             try {
@@ -44,7 +47,7 @@ public class NClassPrintABC {
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
-            System.out.println("C");
+            System.out.print("C");
         });
         Thread d = new Thread(() -> {
             try {
@@ -52,7 +55,7 @@ public class NClassPrintABC {
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
-            System.out.println("D");
+            System.out.print("D");
         });
 
         d.start();

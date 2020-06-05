@@ -8,7 +8,8 @@ import java.util.Scanner;
  * @DateTime: 2020/5/13 17:15
  * @Description: 开立方  //牛顿迭代 f(x) = x^3-num, f'(x)=3*x^2;x=x-f(x)/f'(x);
  */
-public class Cube {
+public class
+Cube {
 
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);

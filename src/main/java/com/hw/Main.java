@@ -1,30 +1,36 @@
-package com.thread;
+package com.hw;
+
+import java.util.Scanner;
 
 /**
  * @author: yhl
- * @DateTime: 2019/11/14 11:13
+ * @DateTime: 2020/5/31 14:19
  * @Description:
  */
-public class OneClassPrintABC {
+public class Main {
 
-
-    static int printTimes = 10;
 
     private static char letter = 'A';
 
 
     public static void main(String[] args) {
-        OneClassPrintABC one = new OneClassPrintABC();
-        one.new PrintABC(one).start();
-        one.new PrintABC(one).start();
-        one.new PrintABC(one).start();
+        Scanner sc = new Scanner(System.in);
+        while (sc.hasNext()) {
+            int nums = sc.nextInt();
+            Main one = new Main();
+            one.new PrintABC(one,nums).start();
+            one.new PrintABC(one,nums).start();
+            one.new PrintABC(one,nums).start();
+            one.new PrintABC(one,nums).start();
+        }
+
     }
 
     public void print() {
         System.out.print(letter);
-        if ('C' == letter) {
-            System.out.println();
-        }
+//        if ('C' == letter) {
+//            System.out.println();
+//        }
     }
 
     public void nextLetter() {
@@ -36,8 +42,10 @@ public class OneClassPrintABC {
                 letter = 'C';
                 break;
             case 'C':
-                letter = 'A';
+                letter = 'D';
                 break;
+            case 'D':
+                letter = 'A';
         }
     }
 
@@ -50,17 +58,20 @@ public class OneClassPrintABC {
 
 
 
-    public class PrintABC extends Thread {
+    class PrintABC extends Thread {
 
-        private final OneClassPrintABC abc;
+        private final Main abc;
 
-        public PrintABC(OneClassPrintABC abc) {
+        private int nums;
+
+        PrintABC(Main abc, int nums) {
+            this.nums = nums;
             this.abc = abc;
         }
 
         @Override
         public void run() {
-            for (int i = 0; i < printTimes; i++) {
+            for (int i = 0; i < nums; i++) {
                 synchronized (abc) {
                     while (letter != abc.getLetter()) {
                         try {
