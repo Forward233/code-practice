@@ -15,24 +15,9 @@ public class QuickSort {
     public static void main(String[] args) {
         int[] arr = {6, 1, 5, 7, 8, 4, 3, 0, 2, 9};
         quickSort(arr, 0, arr.length - 1);
-
-        try {
-            new QuickSort().testException();
-        } catch (NullPointerException e) {
-            e.printStackTrace();
-            System.out.println("-------------");
-        } catch (Exception e) {
-            System.out.println("---------------------e");
-        }
         System.out.println(Arrays.toString(arr));
     }
 
-
-    void testException() throws NullPointerException{
-        int[] a = new int[1];
-        a[2] = 3;
-
-    }
 
     private static void quickSort(int[] arr, int left, int right) {
         if(left < right){

@@ -1,7 +1,10 @@
 package com.thread;
 
+import lombok.SneakyThrows;
+
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 import java.util.concurrent.Semaphore;
-import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.locks.Condition;
 import java.util.concurrent.locks.ReentrantLock;
 
@@ -14,10 +17,11 @@ public class NClassPrintABC {
 
 
     public static void main(String[] args) {
-        nThreadPrint1();
+//        nThreadPrint1();
+//        nThreadPrintNTimes();
 //        nThreadPrintNTimes2();
 //        nThreadPrintNTimes3();
-//        nThreadPrintNTimes4();
+        nThreadPrintNTimes4();
     }
 
 
@@ -70,45 +74,42 @@ public class NClassPrintABC {
      * 要求, 同时启动三个线程, 按顺序输出ABC, 循环10次；
      */
     public static void nThreadPrintNTimes() {
-        new Thread(new A()).start();
-        new Thread(new B()).start();
-        new Thread(new C()).start();
+        ExecutorService executorService = Executors.newFixedThreadPool(10);
+        executorService.submit(new C());
+        executorService.submit(new B());
+        executorService.submit(new A());
     }
 
     private static ReentrantLock lock = new ReentrantLock();
     private static int states = 0;
-    // 循环十次，也可用AtomicInteger来代替，可不用加锁，效率更高
     private static int runTimes = 10;
-    private static AtomicInteger states1 = new AtomicInteger(0);
 
     static class A extends Thread {
 
         @Override
         public void run() {
+            // 只有进入到if中才会执行i++,绝了
             for (int i = 0; i < runTimes;) {
-                lock.lock();
                 if (states % 3 == 0) {
                     System.out.println("ReentrantLock-------第" + (i + 1) + "次:");
                     System.out.println("A");
                     states++;
                     i++;
                 }
-                lock.unlock();
             }
         }
     }
 
     static class B extends Thread {
+        @SneakyThrows
         @Override
         public void run() {
             for (int i = 0; i < runTimes;) {
-                lock.lock();
                 if (states % 3 == 1) {
                     System.out.println("B");
                     states++;
                     i++;
                 }
-                lock.unlock();
             }
         }
     }
@@ -117,13 +118,11 @@ public class NClassPrintABC {
         @Override
         public void run() {
             for (int i = 0; i < runTimes;) {
-                lock.lock();
                 if (states % 3 == 2) {
                     System.out.println("C");
                     states++;
                     i++;
                 }
-                lock.unlock();
             }
         }
     }

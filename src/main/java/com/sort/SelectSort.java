@@ -14,7 +14,7 @@ import java.util.Arrays;
 public class SelectSort {
     public static void main(String[] args) throws Exception {
         int[] arr = {6, 1, 5, 7, 8, 4, 3, 0, 2, 9};
-        select2(arr);
+        select5(arr);
         System.out.println(Arrays.toString(arr));
     }
 
@@ -55,11 +55,7 @@ public class SelectSort {
                 }
             }
             // swap
-            if (i != j) {
-                int temp = arr[j];
-                arr[j] = arr[i];
-                arr[i] = temp;
-            }
+            swap(arr, i, j);
         }
     }
 
@@ -71,11 +67,7 @@ public class SelectSort {
                     j = k;
                 }
             }
-            if (i != j) {
-                int temp = arr[j];
-                arr[j] = arr[i];
-                arr[i] = temp;
-            }
+            swap(arr, i, j);
         }
     }
 
@@ -87,26 +79,41 @@ public class SelectSort {
                     j = k;
                 }
             }
-            if (i != j) {
-                int temp = arr[j];
-                arr[j] = arr[i];
-                arr[i] = temp;
-            }
+            swap(arr, i, j);
         }
     }
 
+    // 找出为排序中最小的元素
     public static void select5(int[] arr) {
         for (int i = 0; i < arr.length; i++) {
             int j = i;
-            for (int k = 0; k < arr.length; k++) {
+            for (int k = i + 1; k < arr.length; k++) {
                 if (arr[k] < arr[j]) {
                     j = k;
                 }
             }
-            if (i != j) {
-                int temp = arr[j];
-                arr[j] = arr[i];
-                arr[i] = temp;
+            swap(arr, i, j);
+        }
+    }
+
+    private static void swap(int[] arr, int i, int j) {
+        if (i != j) {
+            int temp = arr[j];
+            arr[j] = arr[i];
+            arr[i] = temp;
+        }
+    }
+
+    public static void select6(int[] arr) {
+        for (int i = 0; i < arr.length; i++) {
+            int j = i;
+            for (int k = i + 1; k < arr.length; k++) {
+                if (arr[k] < arr[j]) {
+                    j = k;
+                }
+            }
+            if (j != i) {
+
             }
         }
     }
