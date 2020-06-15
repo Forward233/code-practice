@@ -16,6 +16,7 @@ public class SelectSort {
         int[] arr = {6, 1, 5, 7, 8, 4, 3, 0, 2, 9};
         select5(arr);
         System.out.println(Arrays.toString(arr));
+        System.out.println("aaa".substring(0,"aaa".length()));
     }
 
     private static void selectSort(int[] arr) {
@@ -118,7 +119,7 @@ public class SelectSort {
         }
     }
 
-    public static void select6(int[] arr) {
+    public static void select7(int[] arr) {
         for (int i = 0; i < arr.length; i++) {
             int j = i;
             for (int k = i + 1; k < arr.length; k++) {
