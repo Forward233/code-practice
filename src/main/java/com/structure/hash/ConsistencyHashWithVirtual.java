@@ -3,7 +3,6 @@ package com.structure.hash;
 import com.google.common.collect.Lists;
 import com.google.common.collect.Maps;
 
-import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.SortedMap;
@@ -42,8 +41,11 @@ public class ConsistencyHashWithVirtual {
 
     private static String getServer(String node) {
         int nodeHash = HashUtils.getHash(node);
+        //  当inclusive为true时，截取Key大于等于fromKey的所有元素，否则截取Key大于fromKey的所有元素
         final SortedMap<Integer, String> tailMap = virtualNodes.tailMap(nodeHash);
+        //  返回集合中最小Key的key
         final Integer firstKey = tailMap.firstKey();
+        //  根据key获取value
         final String virtualNode = tailMap.get(firstKey);
         return virtualNode.substring(0, virtualNode.length() - 3);
     }
@@ -54,9 +56,6 @@ public class ConsistencyHashWithVirtual {
         for (String node : nodes)
             System.out.println("[" + node + "]的hash值为" +
                     HashUtils.getHash(node) + ", 被路由到结点[" + getServer(node) + "]");
-
-
-        List<String> arrayList = Collections.synchronizedList(new ArrayList<>());
 
     }
 
