@@ -1,9 +1,5 @@
 package com.sort;
 
-import java.util.Arrays;
-import java.util.Calendar;
-import java.util.Date;
-
 /**
  * @author: yhl
  * @DateTime: 2020/1/15 16:00
@@ -15,18 +11,6 @@ public class MergeSort {
 //        int[] arrays = {9, 2, 5, 1, 3, 2, 9, 5, 2, 1, 8};
         int[] arrays = {4, 7, 2, 3, 6};
         mergeSort(arrays, 0, arrays.length - 1);
-        System.out.println(Arrays.toString(arrays));
-        Calendar c = Calendar.getInstance();
-        c.setTime(new Date());
-        Calendar c2 = Calendar.getInstance();
-        c2.set(1, c.get(1));
-        c2.set(2, c.get(2));
-        c2.set(5, c.get(5) + 0);
-        c2.set(11, 23);
-        c2.set(12, 59);
-        c2.set(13, 59);
-        c2.set(14, 0);
-        System.out.println(c2.getTime());
     }
 
     public static void mergeSort(int[] arr, int L, int R) {
