@@ -42,7 +42,13 @@ public class ConsistencyHashWithVirtual {
     private static String getServer(String node) {
         int nodeHash = HashUtils.getHash(node);
         //  当inclusive为true时，截取Key大于等于fromKey的所有元素，否则截取Key大于fromKey的所有元素
-        final SortedMap<Integer, String> tailMap = virtualNodes.tailMap(nodeHash);
+        SortedMap<Integer, String> tailMap;
+        // hash如果大于最后一个节点
+        if (nodeHash > virtualNodes.lastKey()) {
+            tailMap = virtualNodes;
+        } else {
+            tailMap = virtualNodes.tailMap(nodeHash);
+        }
         //  返回集合中最小Key的key
         final Integer firstKey = tailMap.firstKey();
         //  根据key获取value
@@ -56,7 +62,6 @@ public class ConsistencyHashWithVirtual {
         for (String node : nodes)
             System.out.println("[" + node + "]的hash值为" +
                     HashUtils.getHash(node) + ", 被路由到结点[" + getServer(node) + "]");
-
     }
 
 

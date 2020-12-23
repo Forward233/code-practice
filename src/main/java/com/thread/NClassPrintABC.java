@@ -17,11 +17,11 @@ public class NClassPrintABC {
 
 
     public static void main(String[] args) {
-//        nThreadPrint1();
+        nThreadPrint1();
 //        nThreadPrintNTimes();
 //        nThreadPrintNTimes2();
 //        nThreadPrintNTimes3();
-        nThreadPrintNTimes4();
+//        nThreadPrintNTimes4();
     }
 
 
@@ -35,7 +35,7 @@ public class NClassPrintABC {
         });
 
         Thread b = new Thread(() -> {
-            for (int i = 0; i < 10; i++) {
+            for (int i = 0; i < 1; i++) {
                 try {
                     a.join();
                 } catch (InterruptedException e) {
@@ -53,6 +53,7 @@ public class NClassPrintABC {
             }
             System.out.print("C");
         });
+
         Thread d = new Thread(() -> {
             try {
                 c.join();

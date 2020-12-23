@@ -1,8 +1,5 @@
 package com.structure.hash;
 
-import java.util.ArrayList;
-import java.util.List;
-
 /**
  * @author: yhl
  * @DateTime: 2020/2/28 10:35
@@ -18,7 +15,6 @@ public class HashUtils {
      * @return
      */
     public static int getHash(String str) {
-        List<Integer> result = new ArrayList<>();
         final int p = 16777619;
         int hash = (int) 2166136261L;
         for (int i = 0; i < str.length(); i++)
