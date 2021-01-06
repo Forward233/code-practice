@@ -1,7 +1,5 @@
 package com.hw;
 
-import java.util.Comparator;
-import java.util.Random;
 import java.util.Scanner;
 import java.util.TreeSet;
 
@@ -23,7 +21,7 @@ public class QuestionnaireSurvey {
         // 不能结束输出
         while(sc.hasNext()){
             int num = sc.nextInt();
-            TreeSet<Integer> set = new TreeSet<>();
+            TreeSet<Integer> set = new TreeSet<>(Integer::compareTo);
             for(int i = 0 ; i < num ;i++){
                 int curr = sc.nextInt();
                 set.add(curr);

@@ -16,7 +16,6 @@ public class SelectSort {
         int[] arr = {6, 1, 5, 7, 8, 4, 3, 0, 2, 9};
         select5(arr);
         System.out.println(Arrays.toString(arr));
-        System.out.println("aaa".substring(0, "aaa".length()));
     }
 
     private static void selectSort(int[] arr) {
@@ -44,12 +43,11 @@ public class SelectSort {
      * 3.从此元素向后遍历，直到找出比此元素小的最小元素索引，替换本次循环元素
      * 4.如果此元素不为最小元素,将此元素和最小元素进行交换
      * 5.下一轮
-     *
      * @param arr
      */
 
     public static void select2(int[] arr) {
-        for (int i = 0; i < arr.length; i++) {
+        for(int i = 0;i< arr.length;i++){
             int j = i;
             for (int k = i + 1; k < arr.length; k++) {
                 if (arr[k] < arr[j]) {
@@ -73,7 +71,7 @@ public class SelectSort {
         }
     }
 
-    public static void select4(int[] arr) {
+    public static void select4(int[] arr){
         for (int i = 0; i < arr.length; i++) {
             int j = i;
             for (int k = i + 1; k < arr.length; k++) {
@@ -150,6 +148,3 @@ public class SelectSort {
                 arr[j] = temp;
             }
         }
-
-    }
-}
