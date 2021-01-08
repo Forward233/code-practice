@@ -1,5 +1,7 @@
 package com.structure.tree;
 
+import java.util.ArrayDeque;
+import java.util.Deque;
 import java.util.Stack;
 
 /**
@@ -56,14 +58,14 @@ public class TreeIter {
                  *             7           8
                  */
     // 中序遍历
-    void middleorderTraversalByRecursion(TreeNode root) {
+    void middleOrderTraversalByRecursion(TreeNode root) {
         if (root != null) {
             if(root.leftNode != null){
-                middleorderTraversalByRecursion(root.leftNode);
+                middleOrderTraversalByRecursion(root.leftNode);
             }
             System.out.print(root.val+" ");
             if(root.rightNode != null){
-                middleorderTraversalByRecursion(root.rightNode);
+                middleOrderTraversalByRecursion(root.rightNode);
             }
         }
     }
@@ -167,6 +169,61 @@ public class TreeIter {
     }
 
 
+    public void preIterByStack(TreeNode tree) {
+        System.out.println();
+        Stack<TreeNode> stack = new Stack<>();
+        stack.push(tree);
+
+        while (!stack.isEmpty()) {
+            TreeNode node = stack.pop();
+            System.out.print(node.val + " ");
+
+            // stack先进后出，所以先右后左
+            if (node.rightNode != null) {
+                stack.push(node.rightNode);
+            }
+            if (node.leftNode != null) {
+                stack.push(node.leftNode);
+            }
+        }
+    }
+
+    public void postIterByStack(TreeNode tree) {
+        System.out.println();
+        Stack<TreeNode> stack = new Stack<>();
+
+        while (!stack.isEmpty()) {
+            TreeNode node = stack.pop();
+            // stack先进后出，所以先右后左
+            if (node.leftNode != null) {
+                stack.push(node.leftNode);
+            }
+            if (node.rightNode != null) {
+                stack.push(node.rightNode);
+            }
+            System.out.print(node.val + " ");
+        }
+        System.out.println();
+
+    }
+
+    public void boardSearch(TreeNode treeNode) {
+        System.out.println();
+        Deque<TreeNode> deque = new ArrayDeque<>();
+        deque.add(treeNode);
+        while (!deque.isEmpty()) {
+            TreeNode node = deque.poll();
+            System.out.print(node.val + " ");
+            if (node.leftNode != null) {
+                deque.add(node.leftNode);
+            }
+            if (node.rightNode != null) {
+                deque.add(node.rightNode);
+            }
+        }
+
+    }
+
     public static void main(String[] args) {
         TreeNode root = new TreeNode(1);
         TreeNode a = new TreeNode(2);
@@ -185,17 +242,23 @@ public class TreeIter {
         b.rightNode = e;
         e.leftNode = g;
 
+        //深度搜索遍历
         TreeIter treeIter = new TreeIter();
         treeIter.preorderTraversalByRecursion(root);
         System.out.println();
         treeIter.preorderTraversal(root);
         System.out.println();
-        treeIter.middleorderTraversalByRecursion(root);
+        treeIter.middleOrderTraversalByRecursion(root);
         System.out.println();
         treeIter.middleorderTraversal(root);
         System.out.println();
         treeIter.postorderTraversalByRecursion(root);
         System.out.println();
         treeIter.postorderTraversal(root);
+
+        //广度搜索遍历
+        treeIter.boardSearch(root);
+        treeIter.preIterByStack(root);
+        treeIter.postIterByStack(root);
     }
 }
