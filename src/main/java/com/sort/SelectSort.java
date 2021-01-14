@@ -12,7 +12,7 @@ import java.util.Arrays;
  * 以此类推，第i趟在待排序数据arr[i]~arr[n]中选出最小的数据，将它与r[i]交换，直到全部排序完成。
  */
 public class SelectSort {
-    public static void main(String[] args) throws Exception {
+    public static void main(String[] args) {
         int[] arr = {6, 1, 5, 7, 8, 4, 3, 0, 2, 9};
         select5(arr);
         System.out.println(Arrays.toString(arr));
@@ -148,3 +148,22 @@ public class SelectSort {
                 arr[j] = temp;
             }
         }
+    }
+
+
+    static void select9(int[] arr) {
+        for (int i = 0; i < arr.length; i++) {
+            int j = i;
+            for (int k = i + 1; k < arr.length; k++) {
+                if (arr[j] > arr[k]) {
+                    j = k;
+                }
+            }
+            if (j != i) {
+                int temp = arr[i];
+                arr[i] = arr[j];
+                arr[j] = temp;
+            }
+        }
+    }
+}

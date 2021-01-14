@@ -11,12 +11,13 @@ public class BubblingSort {
 
     public static void main(String[] args) {
         int[] arr = {6, 1, 5, 7, 8, 4, 3, 0, 2, 9};
-        b4(arr);
+        b7(arr);
         System.out.println(Arrays.toString(arr));
     }
 
     /**
      * 优化
+     *
      * @param arr
      */
     private static void bubblingSort(int[] arr) {
@@ -36,7 +37,7 @@ public class BubblingSort {
                 }
             }
             sortBorder = lastExchangeIndex;
-            if(isSorted){
+            if (isSorted) {
                 break;
             }
         }
@@ -56,12 +57,13 @@ public class BubblingSort {
 
     /**
      * 每天一练
+     *
      * @param arr
      */
     private static void b3(int[] arr) {
         for (int i = 0; i < arr.length; i++) {
             for (int j = 1; j < arr.length - i; j++) {
-                if (arr[j]> arr[j-1]) {
+                if (arr[j] > arr[j - 1]) {
                     int temp = arr[j];
                     arr[j] = arr[j - 1];
                     arr[j - 1] = temp;
@@ -70,10 +72,10 @@ public class BubblingSort {
         }
     }
 
-    private static void b4(int[] arr){
+    private static void b4(int[] arr) {
         for (int i = 0; i < arr.length; i++) {
             for (int j = 1; j < arr.length - i; j++) {
-                if (arr[j-1] > arr[j]) {
+                if (arr[j - 1] > arr[j]) {
                     int temp = arr[j];
                     arr[j] = arr[j - 1];
                     arr[j - 1] = temp;
@@ -82,10 +84,10 @@ public class BubblingSort {
         }
     }
 
-    public static void b5(int[] arr){
+    public static void b5(int[] arr) {
         for (int i = 0; i < arr.length; i++) {
             for (int j = 1; j < arr.length - i; j++) {
-                if (arr[j] < arr[j-1]) {
+                if (arr[j] < arr[j - 1]) {
                     int temp = arr[j];
                     arr[j] = arr[j - 1];
                     arr[j - 1] = temp;
@@ -96,7 +98,7 @@ public class BubblingSort {
 
     public static void b6(int[] arr) {
         for (int i = 0; i < arr.length; i++) {
-            for (int j = 1; j < arr.length - i; j ++) {
+            for (int j = 1; j < arr.length - i; j++) {
                 if (arr[j - 1] > arr[j]) {
                     int temp = arr[j];
                     arr[j] = arr[j - 1];
@@ -107,5 +109,28 @@ public class BubblingSort {
     }
 
 
+    public static void b7(int[] arr) {
+        for (int i = 0; i < arr.length; i++) {
+            for (int j = 1; j < arr.length - i; j++) {
+                if (arr[j - 1] > arr[j]) {
+                    int temp = arr[j - 1];
+                    arr[j - 1] = arr[j];
+                    arr[j] = temp;
+                }
+            }
+        }
+    }
+
+    public static void b8(int[] arr) {
+        for (int i = 0; i < arr.length; i++) {
+            for (int j = 1; j < arr.length - i; j++) {
+                if (arr[j - 1] > arr[j]) {
+                    int temp = arr[j];
+                    arr[j] = arr[j - 1];
+                    arr[j - 1] = temp;
+                }
+            }
+        }
+    }
 
 }

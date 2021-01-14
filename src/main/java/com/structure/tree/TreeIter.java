@@ -12,16 +12,6 @@ import java.util.Stack;
  */
 public class TreeIter {
 
-    private static class TreeNode{
-        private int val;
-        private TreeNode leftNode;
-        private TreeNode rightNode;
-        TreeNode(int val) {
-            this.val = val;
-        }
-    }
-
-
     /**
      * 前中后 是针对于根节点来说的
      * 前序遍历：根结点 ---> 左子树 ---> 右子树

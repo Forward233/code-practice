@@ -2,7 +2,8 @@ package com.structure.list;
 
 import lombok.Data;
 
-import java.util.Stack;
+import java.util.ArrayDeque;
+import java.util.Deque;
 
 /**
  * @author: yhl
@@ -23,9 +24,10 @@ public class LinkReverse {
         linkNode2.next = linkNode3;
         linkNode3.next = linkNode4;
         linkNode4.next = linkNode5;
-//        LinkNode linkNode = recursiveReverse(linkNode1);
+        LinkNode linkNode = recursiveReverse(linkNode1);
 //        System.out.println(linkNode);
-        stackReverse(linkNode1);
+//        stackReverse(linkNode1);
+//        iterReverse(linkNode1);
     }
 
     // 遍历
@@ -50,6 +52,8 @@ public class LinkReverse {
 
     // 递归
 
+    // 1-2-3-4
+    // 4-3-2-1
     static LinkNode recursiveReverse(LinkNode node) {
         if (node == null || node.next == null) {
             return node;
@@ -65,14 +69,14 @@ public class LinkReverse {
         if (node == null || node.next == null) {
             return;
         }
-        Stack<LinkNode> stack = new Stack<>();
+        Deque<LinkNode> deque = new ArrayDeque<>();
         while (node != null) {
-            stack.push(node);
+            deque.push(node);
             node = node.next;
         }
-        LinkNode newNode = new LinkNode(stack.pop().value);
-        while (!stack.isEmpty()) {
-            newNode.next = stack.pop();
+        LinkNode newNode = new LinkNode(deque.pop().value);
+        while (!deque.isEmpty()) {
+            newNode.next = deque.pop();
         }
         System.out.println(newNode);
     }

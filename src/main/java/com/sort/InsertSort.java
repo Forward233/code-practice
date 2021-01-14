@@ -14,12 +14,13 @@ import java.util.Arrays;
 public class InsertSort {
     public static void main(String[] args) {
         int[] arr = {6, 1, 5, 7, 8, 4, 3, 0, 2, 9};
-        insert4(arr);
+        insert9(arr);
         System.out.println(Arrays.toString(arr));
     }
 
     /**
      * 核心思想，取出一个数放在外部缓存，将数组里的这个数的位置作为数组内部缓存使用
+     *
      * @param arr
      */
     private static void insertSort(int[] arr) {
@@ -78,7 +79,7 @@ public class InsertSort {
 
     public static void insert3(int[] arr) {
         int j;
-        for (int i = 1; i < arr.length; i ++) {
+        for (int i = 1; i < arr.length; i++) {
             // 记录要插入的元素
             int temp = arr[i];
             // 记录排好序的数组最后一个元素索引\
@@ -125,4 +126,41 @@ public class InsertSort {
         }
     }
 
+    public static void insert7(int[] arr) {
+        for (int i = 1; i < arr.length; i++) {
+            int temp = arr[i];
+            int j = i - 1;
+            while (j >= 0 && arr[j] > temp) {
+                arr[j + 1] = arr[j];
+                j--;
+            }
+            arr[j + 1] = temp;
+        }
+    }
+
+    public static void insert8(int[] arr) {
+        for (int i = 1; i < arr.length; i++) {
+            int temp = arr[i];
+            int j = i - 1;
+            while (j >= 0 && arr[j] > temp) {
+                arr[j + 1] = arr[j];
+                j--;
+            }
+            arr[j + 1] = temp;
+        }
+    }
+
+
+    public static void insert9(int[] arr) {
+        for (int i = 1; i < arr.length; i++) {
+
+            int temp = arr[i];
+            int j = i - 1;
+            while (j >= 0 && arr[j] > temp) {
+                arr[j + 1] = arr[j];
+                j--;
+            }
+            arr[j + 1] = temp;
+        }
+    }
 }
