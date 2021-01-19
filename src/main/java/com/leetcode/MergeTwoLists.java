@@ -1,5 +1,7 @@
 package com.leetcode;
 
+import lombok.Data;
+
 /**
  * @author: yhl
  * @DateTime: 2021/1/5 15:06
@@ -21,22 +23,21 @@ public class MergeTwoLists {
         ListNode listNode4 = new ListNode(1);
         ListNode listNode5 = new ListNode(3);
         ListNode listNode6 = new ListNode(4);
+
         listNode4.next = listNode5;
         listNode5.next = listNode6;
-        ListNode listNode = new MergeTwoLists().mergeTwoLists(listNode1, listNode4);
-        while (listNode != null) {
-            System.out.println(listNode.val);
-            listNode = listNode.next;
-        }
+//        System.out.println(mergeTwoLists(listNode1, listNode4));
+        System.out.println(recursionMergeList(listNode1, listNode4));
     }
 
-    public ListNode mergeTwoLists(ListNode l1, ListNode l2) {
+    public static ListNode mergeTwoLists(ListNode l1, ListNode l2) {
         if (l1 == null) {
             return l2;
         }
         if (l2 == null) {
             return l1;
         }
+        // 124 134
         ListNode pre = new ListNode(-1);
         ListNode end = pre;
         while (l1 != null && l2 != null) {
@@ -50,7 +51,6 @@ public class MergeTwoLists {
                 l1 = l1.next;
             }
         }
-
         if (l1 == null) {
             end.next = l2;
         } else {
@@ -59,6 +59,24 @@ public class MergeTwoLists {
         return pre.next;
     }
 
+    public static ListNode recursionMergeList(ListNode l1, ListNode l2) {
+        if (l1 == null) {
+            return l2;
+        }
+        if (l2 == null) {
+            return l1;
+        }
+        if (l1.val <= l2.val) {
+            l1.next = recursionMergeList(l1.next, l2);
+            return l1;
+        } else {
+            l2.next = recursionMergeList(l1, l2.next);
+            return l2;
+        }
+    }
+
+
+    @Data
     static class ListNode {
         int val;
         ListNode next;
