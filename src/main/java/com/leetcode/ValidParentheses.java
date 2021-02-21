@@ -11,7 +11,8 @@ import java.util.Deque;
 public class ValidParentheses {
 
     public static void main(String[] args) {
-        new ValidParentheses().isValid("([)]");
+        boolean valid = new ValidParentheses().isValid("([)]");
+        System.out.println(valid);
     }
 
     public boolean isValid(String s) {

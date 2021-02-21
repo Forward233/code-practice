@@ -3,12 +3,12 @@ package com.leetcode;
 /**
  * @author: yhl
  * @DateTime: 2021/1/4 22:06
- * @Description:
+ * @Description:  回文
  */
 public class ValidPalindrome {
 
     public static void main(String[] args) {
-        boolean palindrome = new ValidPalindrome().isPalindrome(",P");
+        boolean palindrome = new ValidPalindrome().isPalindrome("babad");
         System.out.println(palindrome);
     }
 
