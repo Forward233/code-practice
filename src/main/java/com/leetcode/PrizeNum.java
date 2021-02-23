@@ -11,7 +11,6 @@ public class PrizeNum {
         System.out.println();
         long toUnsignedLong = Integer.toUnsignedLong(ip2Int("255.255.255.255"));
         System.out.println(toUnsignedLong);
-        System.out.println(3 << 8 * 0);
     }
 
 

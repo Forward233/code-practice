@@ -30,9 +30,15 @@ public class TwoSum {
                 }
             }
         }
-        return null;
+        return new int[0];
     }
 
+    /**
+     * space exchange time
+     * @param nums
+     * @param target
+     * @return
+     */
     public  int[] twoSum2(int[] nums, int target) {
         final HashMap<Integer, Integer> map = new HashMap<>();
         for (int i = 0; i < nums.length; i++) {
@@ -44,9 +50,14 @@ public class TwoSum {
                 return new int[]{i,map.get(value)};
             }
         }
-        return null;
+        return new int[0];
     }
 
+    /**
+     * @param nums
+     * @param target
+     * @return
+     */
     public  int[] twoSum3(int[] nums, int target) {
         final HashMap<Integer, Integer> map = new HashMap<>();
         for(int i = 0; i < nums.length; i++){
@@ -56,6 +67,6 @@ public class TwoSum {
             }
             map.put(nums[i],i);
         }
-        return null;
+        return new int[0];
     }
 }

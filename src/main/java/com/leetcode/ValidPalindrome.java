@@ -3,7 +3,7 @@ package com.leetcode;
 /**
  * @author: yhl
  * @DateTime: 2021/1/4 22:06
- * @Description:  回文
+ * @Description:  回文 双指针
  */
 public class ValidPalindrome {
 
