@@ -7,7 +7,7 @@ import java.util.Scanner;
  * @DateTime: 2020/5/28 11:38
  * @Description:
  */
-public class Redraiment {
+public class RedRaiment {
 
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
