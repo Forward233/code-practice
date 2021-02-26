@@ -1,6 +1,7 @@
 package com.leetcode.backtracking;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 /**
@@ -23,13 +24,15 @@ public class CombinationSum {
         if (candidates.length == 0) {
             return res;
         }
+        // 排序是重点
+        Arrays.sort(candidates);
         List<Integer> path = new ArrayList<>();
-        dfs(candidates, target, 0, path, res);
+        dfs(candidates, target, 0, 0, path, res);
         return res;
     }
 
 
-    private void dfs(int[] candidates, int target, int sum, List<Integer> path, List<List<Integer>> res) {
+    private void dfs(int[] candidates, int begin, int target, int sum, List<Integer> path, List<List<Integer>> res) {
         if (sum > target) {
             return;
         }
@@ -38,7 +41,7 @@ public class CombinationSum {
             return;
         }
 
-        for (int i = 0; i < candidates.length; i++) {
+        for (int i = begin; i < candidates.length; i++) {
             sum += candidates[i];
             path.add(candidates[i]);
             dfs(candidates, target, sum, path, res);
