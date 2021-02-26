@@ -1,29 +1,27 @@
-package com.leetcode;
+package com.leetcode.backtracking;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 /**
  * @author: yhl
- * @DateTime: 2021/2/26 16:26
+ * @DateTime: 2021/2/26 15:44
  * @Description:
  */
-public class PermuteUnique {
+public class Permute {
 
     public static void main(String[] args) {
-        int[] nums = {3, 3, 0, 3};
-        PermuteUnique permute = new PermuteUnique();
-        List<List<Integer>> result = permute.permuteUnique(nums);
+        int[] nums = {1, 2, 3};
+        Permute permute = new Permute();
+        List<List<Integer>> result = permute.permute(nums);
         System.out.println(result);
     }
 
-    public List<List<Integer>> permuteUnique(int[] nums) {
+    public List<List<Integer>> permute(int[] nums) {
         List<List<Integer>> res = new ArrayList<>();
         if (nums.length == 0) {
             return res;
         }
-        Arrays.sort(nums);
         List<Integer> path = new ArrayList<>();
         int length = nums.length;
         boolean[] used = new boolean[length];
@@ -37,12 +35,8 @@ public class PermuteUnique {
             res.add(new ArrayList<>(path));
             return;
         }
-        for (int i = 0; i < len; ++i) {
+        for (int i = 0; i < len; i++) {
             if (!used[i]) {
-                // 剪枝
-                if (i > 0 && nums[i] == nums[i - 1] && !used[i - 1]) {
-                    continue;
-                }
                 path.add(nums[i]);
                 used[i] = true;
                 dfs(nums, len, depth + 1, path, res, used);
