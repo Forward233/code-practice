@@ -33,8 +33,8 @@ public class TreeDepth {
             return 0;
         }
         int leftDepth = getMaxTreeDepth(node.leftNode);
-        int rightNode = getMaxTreeDepth(node.rightNode);
-        int max = Math.max(leftDepth, rightNode);
+        int rightDepth = getMaxTreeDepth(node.rightNode);
+        int max = Math.max(leftDepth, rightDepth);
         return max + 1;
     }
 }

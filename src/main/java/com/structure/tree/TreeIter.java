@@ -2,7 +2,6 @@ package com.structure.tree;
 
 import java.util.ArrayDeque;
 import java.util.Deque;
-import java.util.Stack;
 
 /**
  * @author: yhl
@@ -23,9 +22,9 @@ public class TreeIter {
     /*
      * 递归实现左、中、右遍历
      *                  1
-     *             2         3
-     *         4          5     6
-     *             7         8
+     *            2            3
+     *        4          5          6
+     *            7             8
      */
 
 
@@ -42,11 +41,12 @@ public class TreeIter {
         }
     }
 
-                 /*                  1
-                 *             2           3
-                 *         4            5     6
-                 *             7           8
-                 */
+     /*
+      *                  1
+      *            2            3
+      *        4          5          6
+      *            7             8
+      */
     // 中序遍历
     void middleOrderTraversalByRecursion(TreeNode root) {
         if (root != null) {
@@ -60,10 +60,11 @@ public class TreeIter {
         }
     }
 
-    /*                  1
-     *             2           3
-     *         4            5     6
-     *             7           8
+    /*
+     *                  1
+     *            2            3
+     *        4          5          6
+     *            7             8
      */
     // 后序遍历
     void postorderTraversalByRecursion(TreeNode root) {
@@ -83,14 +84,15 @@ public class TreeIter {
      *
      */
 
-    /*                  1
-     *             2           3
-     *         4            5     6
-     *             7           8
+    /*
+     *                  1
+     *            2            3
+     *        4          5          6
+     *            7             8
      */
     // 中左右
     void preorderTraversal(TreeNode root) {
-        Stack<TreeNode> stack = new Stack<>();
+        Deque<TreeNode> stack = new ArrayDeque<>();
         while (root != null || !stack.isEmpty()) {
             while (root != null) {
                 System.out.print(root.val + " ");
@@ -104,14 +106,15 @@ public class TreeIter {
         }
     }
 
-    /*                  1
-     *             2           3
-     *         4            5     6
-     *             7           8
+    /*
+     *                  1
+     *            2            3
+     *        4          5          6
+     *            7             8
      */
     // 左中右
     void middleorderTraversal(TreeNode root) {
-        Stack<TreeNode> stack = new Stack<>();
+        Deque<TreeNode> stack = new ArrayDeque<>();
         while (root != null || !stack.isEmpty()) {
             while (root != null) {
                 stack.push(root);
@@ -125,14 +128,15 @@ public class TreeIter {
         }
     }
 
-    /*                  1
-     *             2           3
-     *         4            5     6
-     *             7           8
+    /*
+     *                  1
+     *            2            3
+     *        4          5          6
+     *            7             8
      */
     // 左右中
     void postorderTraversal(TreeNode treeNode) {
-        Stack<TreeNode> stack = new Stack<>();
+        Deque<TreeNode> stack = new ArrayDeque<>();
         while (treeNode != null || !stack.isEmpty()) {
             while (treeNode != null) {
                 stack.push(treeNode);
@@ -161,7 +165,7 @@ public class TreeIter {
 
     public void preIterByStack(TreeNode tree) {
         System.out.println();
-        Stack<TreeNode> stack = new Stack<>();
+        Deque<TreeNode> stack = new ArrayDeque<>();
         stack.push(tree);
 
         while (!stack.isEmpty()) {
@@ -179,9 +183,7 @@ public class TreeIter {
     }
 
     public void postIterByStack(TreeNode tree) {
-        System.out.println();
-        Stack<TreeNode> stack = new Stack<>();
-
+        Deque<TreeNode> stack = new ArrayDeque<>();
         while (!stack.isEmpty()) {
             TreeNode node = stack.pop();
             // stack先进后出，所以先右后左
