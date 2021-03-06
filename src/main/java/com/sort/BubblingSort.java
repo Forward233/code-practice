@@ -10,8 +10,8 @@ import java.util.Arrays;
 public class BubblingSort {
 
     public static void main(String[] args) {
-        int[] arr = {6, 1, 5, 7, 8, 4, 3, 0, 2, 9};
-        b7(arr);
+        int[] arr = {4, 11, 9, 12, 13, 7, 5, 6, 8, 20};
+        bubblingSort(arr);
         System.out.println(Arrays.toString(arr));
     }
 
@@ -33,13 +33,16 @@ public class BubblingSort {
                     arr[j + 1] = arr[j];
                     arr[j] = temp;
                     isSorted = false;
+                    // 优化边界
                     lastExchangeIndex = j;
                 }
             }
+            System.out.println(i + ":" + Arrays.toString(arr));
             sortBorder = lastExchangeIndex;
             if (isSorted) {
                 break;
             }
+
         }
     }
 

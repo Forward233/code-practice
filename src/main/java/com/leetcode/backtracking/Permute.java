@@ -6,7 +6,7 @@ import java.util.List;
 /**
  * @author: yhl
  * @DateTime: 2021/2/26 15:44
- * @Description:
+ * @Description:全排列
  */
 public class Permute {
 
@@ -25,21 +25,21 @@ public class Permute {
         List<Integer> path = new ArrayList<>();
         int length = nums.length;
         boolean[] used = new boolean[length];
-        dfs(nums, length, 0, path, res, used);
+        dfs(nums, path, res, used);
         return res;
     }
 
-    private void dfs(int[] nums, int len, int depth, List<Integer> path, List<List<Integer>> res, boolean[] used) {
+    private void dfs(int[] nums, List<Integer> path, List<List<Integer>> res, boolean[] used) {
 
-        if (depth == len) {
+        if (path.size() == nums.length) {
             res.add(new ArrayList<>(path));
             return;
         }
-        for (int i = 0; i < len; i++) {
+        for (int i = 0; i < nums.length; i++) {
             if (!used[i]) {
                 path.add(nums[i]);
                 used[i] = true;
-                dfs(nums, len, depth + 1, path, res, used);
+                dfs(nums, path, res, used);
                 // 注意：下面这两行代码发生 「回溯」，回溯发生在从 深层结点 回到 浅层结点 的过程，代码在形式上和递归之前是对称的
                 used[i] = false;
                 path.remove(path.size() - 1);
