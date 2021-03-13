@@ -54,6 +54,10 @@ public class TreeSearch {
         }
     }
 
+    /**
+     * 深度优先遍历 栈
+     * @param node
+     */
     public void depthFirstSearchWithStack(TreeNode node) {
         Deque<TreeNode> stack = new ArrayDeque<>();
         stack.push(node);

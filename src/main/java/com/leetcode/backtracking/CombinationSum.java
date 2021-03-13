@@ -24,7 +24,7 @@ public class CombinationSum {
         if (candidates.length == 0) {
             return res;
         }
-        // 排序是重点
+        // 排序是重点，如果加上当前元素，超过target，那么就不用考虑下一位元素了，直接撤消两位
         Arrays.sort(candidates);
         List<Integer> path = new ArrayList<>();
         dfs(candidates, 0, target, 0, path, res);

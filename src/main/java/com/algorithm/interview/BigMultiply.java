@@ -1,5 +1,7 @@
 package com.algorithm.interview;
 
+import java.util.Scanner;
+
 /**
  * @author: yhl
  * @DateTime: 2021/1/15 9:46
@@ -8,10 +10,15 @@ package com.algorithm.interview;
 public class BigMultiply {
 
     public static void main(String[] args) {
-        System.out.println(bigMultiply("12", "123"));
+        Scanner sc = new Scanner(System.in);
+        while (sc.hasNextLine()) {
+            System.out.println(sc.next());
+        }
+//        System.out.println(bigMultiply("12", "123"));
     }
 
     public static String bigMultiply(String num1, String num2) {
+        // 转换成char数组
         char[] chars1 = num1.toCharArray();
         char[] chars2 = num2.toCharArray();
         int[] result = new int[chars1.length + chars2.length];

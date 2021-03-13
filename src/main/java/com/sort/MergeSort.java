@@ -1,5 +1,7 @@
 package com.sort;
 
+import java.util.Arrays;
+
 /**
  * @author: yhl
  * @DateTime: 2020/1/15 16:00
@@ -11,6 +13,7 @@ public class MergeSort {
 //        int[] arrays = {9, 2, 5, 1, 3, 2, 9, 5, 2, 1, 8};
         int[] arrays = {4, 7, 2, 3, 6};
         mergeSort(arrays, 0, arrays.length - 1);
+        System.out.println(Arrays.toString(arrays));
     }
 
     public static void mergeSort(int[] arr, int L, int R) {

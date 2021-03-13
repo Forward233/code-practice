@@ -4,7 +4,7 @@ package com.structure.tree;
 /**
  * @author: yhl
  * @DateTime: 2021/1/14 11:21
- * @Description:
+ * @Description: 树的最长路径
  */
 public class TreeDepth {
 
