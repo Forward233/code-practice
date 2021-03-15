@@ -1,4 +1,4 @@
-package com.structure.list;
+package com.structure.linkedlist;
 
 import lombok.Data;
 
@@ -10,7 +10,7 @@ import java.util.Deque;
  * @DateTime: 2020/5/18 15:36
  * @Description: [理解单链表的反转(java实现) - 简书](https://www.jianshu.com/p/36ed87e1937a)
  */
-public class LinkReverse {
+public class LinkListReverse {
 
 
     public static void main(String[] args) {
@@ -26,12 +26,12 @@ public class LinkReverse {
         linkNode2.next = linkNode3;
         linkNode3.next = linkNode4;
         linkNode4.next = linkNode5;
-        System.out.println(reverseList(linkNode1));
+//        System.out.println(reverseList(linkNode1));
         /*
         * 注意 不能三个方法同时执行，一个一个执行，
         * 因为在反转链表的方法中会对我们构造的linkNode1链表进行修改
         * */
-//        System.out.println(recursiveReverse(linkNode1));
+        System.out.println(recursiveReverse(linkNode1));
 //        System.out.println(stackReverse(linkNode1));
 
     }

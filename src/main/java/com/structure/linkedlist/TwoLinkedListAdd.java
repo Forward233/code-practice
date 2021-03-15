@@ -1,4 +1,4 @@
-package com.structure.list;
+package com.structure.linkedlist;
 
 import com.leetcode.AddTwoNumbers.ListNode;
 
@@ -7,13 +7,13 @@ import com.leetcode.AddTwoNumbers.ListNode;
  * @DateTime: 2021/2/21 12:59
  * @Description:
  */
-public class TwoNumAdd {
+public class TwoLinkedListAdd {
 
     public static void main(String[] args) {
 //        [9,9,9,9,9,9,9]
 //        [9,9,9,9]
 //        [8,9,9,9,0,0,0,1]
-        final TwoNumAdd twoNumAdd = new TwoNumAdd();
+        final TwoLinkedListAdd twoLinkedListAdd = new TwoLinkedListAdd();
         ListNode a = new ListNode(9);
         a.next = new ListNode(9);
         a.next.next = new ListNode(9);
@@ -26,7 +26,7 @@ public class TwoNumAdd {
         b.next = new ListNode(9);
         b.next.next = new ListNode(9);
         b.next.next.next = new ListNode(9);
-        final ListNode listNode = twoNumAdd.addTwoNumbers(a, b);
+        final ListNode listNode = twoLinkedListAdd.addTwoNumbers(a, b);
         System.out.println(listNode);
     }
 
