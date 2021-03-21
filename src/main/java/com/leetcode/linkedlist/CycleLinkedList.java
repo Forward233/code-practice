@@ -1,4 +1,4 @@
-package com.leetcode;
+package com.leetcode.linkedlist;
 
 import com.leetcode.AddTwoNumbers.ListNode;
 

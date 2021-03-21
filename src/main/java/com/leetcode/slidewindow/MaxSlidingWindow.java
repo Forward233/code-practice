@@ -1,4 +1,4 @@
-package com.leetcode;
+package com.leetcode.slidewindow;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -36,6 +36,12 @@ public class MaxSlidingWindow {
         return result.stream().mapToInt(r -> r).toArray();
     }
 
+    /**
+     * 单调递减队列
+     * @param nums
+     * @param k
+     * @return
+     */
     public int[] maxSlidingWindowWithDeque(int[] nums, int k) {
         if (nums == null || nums.length < 2) {
             return nums;
@@ -43,11 +49,13 @@ public class MaxSlidingWindow {
 
         LinkedList<Integer> queue = new LinkedList<>();
         int[] ans = new int[nums.length - k + 1];
+        // i 为窗口位置
         for (int i = 0; i < nums.length; i++) {
             while (!queue.isEmpty() && nums[queue.peekLast()] < nums[i]) {
                 queue.pollLast();
             }
             queue.add(i);
+            // 保持窗口元素数量
             if (!queue.isEmpty() && queue.peek() < i - k) {
                 queue.poll();
             }

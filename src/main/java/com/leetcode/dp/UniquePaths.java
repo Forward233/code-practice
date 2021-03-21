@@ -1,9 +1,9 @@
-package com.leetcode;
+package com.leetcode.dp;
 
 /**
  * @author: yhl
  * @DateTime: 2021/2/25 16:47
- * @Description:
+ * @Description: 不同路径
  */
 public class UniquePaths {
 

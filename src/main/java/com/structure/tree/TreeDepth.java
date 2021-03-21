@@ -32,6 +32,8 @@ public class TreeDepth {
         if (node == null) {
             return 0;
         }
+//        int leftDepth = getMaxTreeDepth(node.leftNode) + 1;
+//        int rightDepth = getMaxTreeDepth(node.rightNode) + 1;
         int leftDepth = getMaxTreeDepth(node.leftNode);
         int rightDepth = getMaxTreeDepth(node.rightNode);
         int max = Math.max(leftDepth, rightDepth);
