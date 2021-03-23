@@ -1,6 +1,6 @@
 package com.leetcode;
 
-import lombok.Data;
+import com.bo.ListNode;
 
 /**
  * Author: yhl
@@ -48,15 +48,5 @@ public class AddTwoNumbers {
         if (sum / 10 == 1)
             d.next = new ListNode(1);
         return sentinel.next;
-    }
-
-    @Data
-    public static class ListNode {
-        public int val;
-        public ListNode next;
-
-        public ListNode(int x) {
-            val = x;
-        }
     }
 }

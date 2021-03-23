@@ -1,6 +1,7 @@
 package com.leetcode;
 
-import com.leetcode.AddTwoNumbers.ListNode;
+
+import com.bo.ListNode;
 
 /**
  * @author: yhl
