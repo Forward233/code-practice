@@ -20,26 +20,37 @@ public class QuickSort {
 
 
     private static void quickSort(int[] arr, int left, int right) {
+        // 左指针小于右指针
         if(left < right){
+            // 排序
             int middle = compare(arr, left, right);
+            // 二分 递归
             quickSort(arr, left, middle - 1);
             quickSort(arr, middle + 1, right);
         }
     }
 
     private static int compare(int[] arr, int left, int right) {
+        // 基准
         int temp = arr[left];
+        // 左指针小于右指针
         while (left < right) {
+            // 找到右边比基准元素小的值
             while (left < right && arr[right] >= temp) {
                 right--;
             }
+            // 放在左边位置，右边位置空出来
             arr[left] = arr[right];
+            // 找到左边比基准大的值
             while (left < right && arr[left] <= temp) {
                 left++;
             }
+            // 放在右边空出来的位置
             arr[right] = arr[left];
         }
+        // 将基准元素放在合适的位置
         arr[left] = temp;
+        // 返回索引位置
         return left;
     }
 }

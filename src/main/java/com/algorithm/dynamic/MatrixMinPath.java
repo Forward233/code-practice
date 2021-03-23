@@ -18,7 +18,12 @@ public class MatrixMinPath {
         if (arr.length == 0) {
             return 0;
         }
-        int[][] dp = new int[arr.length][arr[0].length];
+
+        // 行
+        int rows = arr.length;
+        // 列
+        int columns = arr[0].length;
+        int[][] dp = new int[rows][columns];
         dp[0][0] = arr[0][0];
         for (int i = 1; i < arr.length; i++) {
             dp[0][i] = dp[0][i - 1] + arr[0][i];
@@ -28,15 +33,11 @@ public class MatrixMinPath {
             dp[i][0] = dp[i - 1][0] + arr[i][0];
         }
 
-        //dp[i][j]=Math.min(dp[i-1][j], dp[i][j-1])+arr[i][j];
 
         for (int i = 1; i < arr.length; i++) {
             for (int j = 1; j <arr[0].length ; j++) {
                 dp[i][j] = Math.min(dp[i - 1][j], dp[i][j - 1]) + arr[i][j];
             }
-        }
-        for (int i = 0; i < arr.length; i++) {
-            System.out.println(Arrays.toString(dp[i]));
         }
         return dp[arr.length-1][arr[0].length-1];
     }
