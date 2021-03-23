@@ -7,10 +7,14 @@ import java.util.Set;
  * @author: yhl
  * @DateTime: 2021/3/13 13:06
  * @Description: 最长回文串
+ * 可以构造的最长回文串
  */
 public class LongestPalindrome {
 
     public static void main(String[] args) {
+
+        System.out.println(new LongestPalindrome().longestPalindrome("abccccdd"));
+
     }
 
 
