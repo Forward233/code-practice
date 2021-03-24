@@ -1,7 +1,5 @@
 package com.algorithm.interview;
 
-import java.util.Scanner;
-
 /**
  * @author: yhl
  * @DateTime: 2021/1/15 9:46
@@ -10,11 +8,7 @@ import java.util.Scanner;
 public class BigMultiply {
 
     public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
-        while (sc.hasNextLine()) {
-            System.out.println(sc.next());
-        }
-//        System.out.println(bigMultiply("12", "123"));
+        System.out.println(bigMultiply("12", "123"));
     }
 
     public static String bigMultiply(String num1, String num2) {
@@ -24,6 +18,7 @@ public class BigMultiply {
         int[] result = new int[chars1.length + chars2.length];
         int[] n1 = new int[chars1.length];
         int[] n2 = new int[chars2.length];
+        // char转换为 int
         for (int i = 0; i < chars1.length; i++) {
             n1[i] = chars1[i] - '0';
         }
@@ -45,15 +40,20 @@ public class BigMultiply {
                 result[i + j] += n1[i] * n2[j];
             }
         }
-        for (int i = result.length - 1; i >0 ; i--) {
-            result[i - 1] += result[i] / 10;
-            result[i] = result[i] % 10;
+        for (int i = result.length - 1; i > 0; i--) {
+            if (result[i] > 9) {
+                result[i - 1] += result[i] / 10;
+                result[i] = result[i] % 10;
+            }
         }
 
         StringBuilder sb = new StringBuilder();
-        for(int i = 0; i < result.length-1; i++){
-            sb.append(result[i]);
+        for (int i = 0; i < result.length - 1; i++) {
+            if (result[i] != 0 || sb.length() > 0) {
+                sb.append(result[i]);
+            }
+
         }
-        return sb.toString();
+        return sb.length() > 0 ? sb.toString() : "0";
     }
 }
