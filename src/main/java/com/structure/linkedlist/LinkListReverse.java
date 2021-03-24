@@ -109,7 +109,6 @@ public class LinkListReverse {
         //所以head.next.next 就是5->4
         head.next.next = head;
         //防止链表循环，需要将head.next设置为空
-        System.out.println(head.next.value);
         head.next = null;
         //每层递归函数都返回cur，也就是最后一个节点
         return cur;

@@ -16,6 +16,8 @@ public class LRUCache {
     public LRUCache(int capacity) {
         this.capacitySize = capacity;
         cache = new LinkedHashMap(16,0.75f,true){
+            private static final long serialVersionUID = 4498647962678969965L;
+
             @Override
             protected boolean removeEldestEntry(Map.Entry eldest) {
                 return cache.size() > capacitySize;
