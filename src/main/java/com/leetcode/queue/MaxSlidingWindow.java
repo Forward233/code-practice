@@ -14,6 +14,8 @@ public class MaxSlidingWindow {
 
     public static void main(String[] args) {
 
+        int max = (int)Math.pow(10, 3);
+        System.out.println(max);
         int[] nums = {1, 3, -1, -3, 5, 3, 6, 7};
         MaxSlidingWindow maxSlidingWindow = new MaxSlidingWindow();
         int[] ints = maxSlidingWindow.maxSlidingWindowWithDeque(nums, 3);
