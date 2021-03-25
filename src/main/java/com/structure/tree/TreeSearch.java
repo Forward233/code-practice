@@ -33,9 +33,9 @@ public class TreeSearch {
         e.rightNode = h;
         TreeSearch treeSearch = new TreeSearch();
         //treeSearch.depthFirstSearch(root);
-        treeSearch.depthFirstSearchWithStack(root);
+//        treeSearch.depthFirstSearchWithStack(root);
         System.out.println();
-//        treeSearch.breadthFirstSearchWithStack(root);
+        treeSearch.breadthFirstSearchWithStack(root);
 
     }
 
@@ -48,6 +48,7 @@ public class TreeSearch {
     //  深度优先遍历 递归  1 2 4 7 3 5 6 8 9
     public void depthFirstSearch(TreeNode node) {
         if (node != null) {
+
             System.out.print(node.val + " ");
             depthFirstSearch(node.leftNode);
             depthFirstSearch(node.rightNode);
