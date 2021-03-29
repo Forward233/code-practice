@@ -49,18 +49,18 @@ public class LengthOfLIS {
         int[] dp = new int[nums.length];
         for (int num : nums) {
             // 二分法查找, 也可以调用库函数如binary_search
-            int lo = 0;
-            int hi = maxL;
-            while (lo < hi) {
-                int mid = (hi + lo) / 2;
+            int low = 0;
+            int high = maxL;
+            while (low < high) {
+                int mid = (high + low) / 2;
                 if (dp[mid] < num) {
-                    lo = mid + 1;
+                    low = mid + 1;
                 } else {
-                    hi = mid;
+                    high = mid;
                 }
             }
-            dp[lo] = num;
-            if (lo == maxL) {
+            dp[low] = num;
+            if (low == maxL) {
                 maxL++;
             }
         }
