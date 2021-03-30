@@ -1,4 +1,4 @@
-package com.swordoffeer.backtrace;
+package com.leetcode.backtracking;
 
 import java.util.ArrayList;
 import java.util.Arrays;

@@ -1,4 +1,4 @@
-package com.swordoffeer.linkedlist;
+package com.leetcode.linkedlist;
 
 import com.bo.ListNode;
 

@@ -6,16 +6,16 @@ import com.structure.tree.TreeNode;
  * @author: yhl
  * @DateTime: 2021/2/26 10:10
  * @Description: 路径总和
- *
+ * <p>
  * 区别：
  * ①递归是一种算法结构，而回溯和深搜是一种算法思想。
  * ②从解空间树的角度看，深搜会访问解空间树的所有节点，并标记“走过的路”（比如背包问题）不可撤销这种标记，一条路走到黑，直到找到问题的解；而回溯是一种试探性地行为，也会标记，但是可撤销此标记。
  * ③回溯和深搜最大的区别是回溯一定伴随着“剪枝”操作，节省大量时间，深搜却不一定。
- *
+ * <p>
  * 联系：
  * ①回溯和深搜，本身就会利用到递归。
  * ②深搜可以看成是一种工具，回溯是这个工具的一种应用，换句话说，回溯是深搜的一种，深搜是回溯但不剪枝。
- *
+ * <p>
  * 下面贴一下别的帖子找的
  * 回溯与深搜的关系
  * 回溯法的基本思想：
@@ -35,13 +35,15 @@ public class HasPathSum {
 
     /**
      * 深度优先搜索 回溯
-     *     1
+     * 1
      * 2       3
+     *
      * @param root
      * @param targetSum
      * @return
      */
     boolean res = false;
+
     public boolean hasPathSum(TreeNode root, int targetSum) {
         if (root == null) {
             return res;
@@ -54,10 +56,8 @@ public class HasPathSum {
         if (node == null) {
             return;
         }
-        if (node.left == null && node.right == null) {
-            if (sum == node.val) {
-                res = true;
-            }
+        if (node.left == null && node.right == null && sum == node.val) {
+            res = true;
         }
         // 剪枝
         if (!res) {

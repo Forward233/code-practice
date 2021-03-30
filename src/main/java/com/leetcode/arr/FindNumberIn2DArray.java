@@ -1,4 +1,4 @@
-package com.swordoffeer.arr;
+package com.leetcode.arr;
 
 /**
  * @author: yhl

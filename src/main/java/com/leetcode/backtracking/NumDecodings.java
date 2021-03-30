@@ -1,4 +1,4 @@
-package com.swordoffeer.backtrace;
+package com.leetcode.backtracking;
 
 /**
  * @author: yhl
