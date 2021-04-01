@@ -27,7 +27,7 @@ public class MergeTwoLists {
         listNode4.next = listNode5;
         listNode5.next = listNode6;
 //        System.out.println(mergeTwoLists(listNode1, listNode4));
-        System.out.println(mergeTwoLists3(listNode1, listNode4));
+        System.out.println(recursionMergeList(listNode1, listNode4));
     }
 
     public static ListNode mergeTwoLists(ListNode l1, ListNode l2) {
@@ -61,6 +61,7 @@ public class MergeTwoLists {
     }
 
     // 124 134
+    //https://leetcode-cn.com/problems/merge-two-sorted-lists/solution/chao-xiang-xi-tu-jie-di-gui-zhi-xing-guo-cheng-21h/
     public static ListNode recursionMergeList(ListNode l1, ListNode l2) {
         if (l1 == null) {
             return l2;
