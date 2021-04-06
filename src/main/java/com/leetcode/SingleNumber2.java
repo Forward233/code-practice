@@ -10,16 +10,17 @@ import java.util.*;
 public class SingleNumber2 {
 
     public static void main(String[] args) {
-        int[] arr = {0,1,0,1,0,1,99};SingleNumber2 singleNumber = new SingleNumber2();
-        System.out.println(singleNumber.singleNumber(arr));
+        int[] arr = {4, 1, 2, 1, 2};
+        SingleNumber2 singleNumber = new SingleNumber2();
+        System.out.println(singleNumber.singleNumber2(arr));
     }
 
     public int singleNumber(int[] nums) {
-        Map<Integer,Integer> map = new HashMap<>();
-        for (Integer num :nums) {
+        Map<Integer, Integer> map = new HashMap<>();
+        for (Integer num : nums) {
             Integer count = map.getOrDefault(num, 0);
             map.put(num, ++count);
-            if(count == 3){
+            if (count == 3) {
                 map.remove(num);
             }
         }
@@ -27,10 +28,23 @@ public class SingleNumber2 {
     }
 
     public int singleNumber2(int[] nums) {
+        Arrays.sort(nums);
+        for (int i = 0; i < nums.length - 1; i++, i++) {
+            if (nums[i] != nums[i + 1]) {
+                return nums[i];
+            }
+        }
+        if (nums.length %2 != 0) {
+            return nums[nums.length - 1];
+        }
         return 0;
     }
 
     public int singleNumber3(int[] nums) {
-        return 0;
+        int result = 0;
+        for (int num : nums) {
+            result ^= num;
+        }
+        return result;
     }
 }

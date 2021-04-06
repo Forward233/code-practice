@@ -38,8 +38,13 @@ public class MergeSort {
         int[] leftArray = new int[M - L];
         int[] rightArray = new int[R - M + 1];
         //往这两个数组填充数据
-        if (M - L >= 0) System.arraycopy(arr, L, leftArray, 0, M - L);
-        if (R + 1 - M >= 0) System.arraycopy(arr, M, rightArray, 0, R + 1 - M);
+        if (M - L >= 0) {
+            System.arraycopy(arr, L, leftArray, 0, M - L);
+        }
+
+        if (R + 1 - M >= 0) {
+            System.arraycopy(arr, M, rightArray, 0, R + 1 - M);
+        }
 
         int i = 0, j = 0;
         // arrays数组的第一个元素
