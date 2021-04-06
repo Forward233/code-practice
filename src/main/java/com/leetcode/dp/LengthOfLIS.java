@@ -10,9 +10,9 @@ import java.util.Arrays;
 public class LengthOfLIS {
 
     public static void main(String[] args) {
-        int[]  nums = {10,9,2,5,3,7,101,18};
+        int[] nums = {10, 9, 2, 5, 3, 7, 101, 18};
         LengthOfLIS lengthOfLIS = new LengthOfLIS();
-        lengthOfLIS.lengthOfLISWithDichotomy(nums);
+        lengthOfLIS.lengthOfLIS(nums);
     }
 
     public int lengthOfLIS(int[] nums) {
