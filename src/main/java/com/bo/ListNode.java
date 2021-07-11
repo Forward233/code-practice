@@ -23,4 +23,15 @@ public class ListNode {
         this.val = val;
         this.next = next;
     }
+
+    public static void main(String[] args) {
+        for (; ; ) {
+            try {
+                Thread.sleep(100);
+                System.out.println("q");
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }
+    }
 }

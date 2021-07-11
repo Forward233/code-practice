@@ -27,7 +27,7 @@ public class NClassPrintABC {
 
     /**
      * 1.有A、B、C、D四个线程，A线程输出A, B线程输出B, C线程输出C，D线程输出D，
-     *   要求,   同时启动四个线程, 按顺序输出ABCD；
+     * 要求,   同时启动四个线程, 按顺序输出ABCD；
      */
     public static void nThreadPrint1() {
         Thread a = new Thread(() -> {
@@ -35,14 +35,12 @@ public class NClassPrintABC {
         });
 
         Thread b = new Thread(() -> {
-            for (int i = 0; i < 1; i++) {
-                try {
-                    a.join();
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
-                System.out.print("B");
+            try {
+                a.join();
+            } catch (InterruptedException e) {
+                e.printStackTrace();
             }
+            System.out.print("B");
 
         });
         Thread c = new Thread(() -> {
@@ -90,7 +88,7 @@ public class NClassPrintABC {
         @Override
         public void run() {
             // 只有进入到if中才会执行i++,绝了
-            for (int i = 0; i < runTimes;) {
+            for (int i = 0; i < runTimes; ) {
                 if (states % 3 == 0) {
                     System.out.println("ReentrantLock-------第" + (i + 1) + "次:");
                     System.out.println("A");
@@ -105,7 +103,7 @@ public class NClassPrintABC {
         @SneakyThrows
         @Override
         public void run() {
-            for (int i = 0; i < runTimes;) {
+            for (int i = 0; i < runTimes; ) {
                 if (states % 3 == 1) {
                     System.out.println("B");
                     states++;
@@ -118,7 +116,7 @@ public class NClassPrintABC {
     static class C extends Thread {
         @Override
         public void run() {
-            for (int i = 0; i < runTimes;) {
+            for (int i = 0; i < runTimes; ) {
                 if (states % 3 == 2) {
                     System.out.println("C");
                     states++;
@@ -145,7 +143,7 @@ public class NClassPrintABC {
     static class A2 extends Thread {
         @Override
         public void run() {
-            for (int i = 0; i < runTimes;) {
+            for (int i = 0; i < runTimes; ) {
                 synchronized (this) {
                     if (states % 3 == 0) {
                         System.out.println("synchronized-------第" + (i + 1) + "次:");
@@ -161,7 +159,7 @@ public class NClassPrintABC {
     static class B2 extends Thread {
         @Override
         public void run() {
-            for (int i = 0; i < runTimes;) {
+            for (int i = 0; i < runTimes; ) {
                 synchronized (object) {
                     if (states % 3 == 1) {
                         System.out.println("B");
@@ -176,7 +174,7 @@ public class NClassPrintABC {
     static class C2 extends Thread {
         @Override
         public void run() {
-            for (int i = 0; i < runTimes;) {
+            for (int i = 0; i < runTimes; ) {
                 synchronized (object) {
                     if (states % 3 == 2) {
                         System.out.println("C");
@@ -258,7 +256,7 @@ public class NClassPrintABC {
     private Condition conditionA = lock.newCondition();
     private Condition conditionB = lock.newCondition();
     private Condition conditionC = lock.newCondition();
-    private char currentThreadName ='A';
+    private char currentThreadName = 'A';
 
     public static void nThreadPrintNTimes4() {
         NClassPrintABC printABC = new NClassPrintABC();

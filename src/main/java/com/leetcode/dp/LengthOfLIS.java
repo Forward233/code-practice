@@ -5,14 +5,14 @@ import java.util.Arrays;
 /**
  * @author: yhl
  * @DateTime: 2021/3/28 1:28
- * @Description:
+ * @Description: 最长递增子序列
  */
 public class LengthOfLIS {
 
     public static void main(String[] args) {
         int[]  nums = {10,9,2,5,3,7,101,18};
         LengthOfLIS lengthOfLIS = new LengthOfLIS();
-        lengthOfLIS.lengthOfLISWithDichotomy(nums);
+        lengthOfLIS.lengthOfLIS(nums);
     }
 
     public int lengthOfLIS(int[] nums) {

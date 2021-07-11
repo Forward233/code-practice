@@ -1,4 +1,4 @@
-package com.leetcode;
+package com.leetcode.linkedlist;
 
 import com.bo.ListNode;
 
@@ -7,14 +7,14 @@ import com.bo.ListNode;
  * DateTime: 2019/11/4 12:38
  * Description: write some description
  */
-public class AddTwoNumbers {
+public class AddTwoListNode {
     /**
      * Input: (2 -> 4 -> 3) + (5 -> 6 -> 4)
      * Output: 7 -> 0 -> 8
      * @param args
      */
     public static void main(String[] args) {
-        final AddTwoNumbers addTwoNumbers = new AddTwoNumbers();
+        final AddTwoListNode addTwoListNode = new AddTwoListNode();
         ListNode a = new ListNode(2);
         a.next = new ListNode(4);
         a.next.next = new ListNode(3);
@@ -22,7 +22,7 @@ public class AddTwoNumbers {
         ListNode b = new ListNode(5);
         b.next = new ListNode(6);
         b.next.next = new ListNode(4);
-        final ListNode listNode = addTwoNumbers.addTwoNumbers(a, b);
+        final ListNode listNode = addTwoListNode.addTwoNumbers(a, b);
         System.out.println(listNode);
     }
 
